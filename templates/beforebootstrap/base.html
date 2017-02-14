@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Resource Home</title>
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	</head>
+	
+	
+	
+	<body>
+		<h4>new post page edit ect</h4>
+		
+		
+	<a href="/home">Link Home</a>	
+	<a href="/newpost/{{page_link}}">new post</a>
+	<a href="/newpage">new page</a>
+	<a href="/edit/{{page_link}}">edit</a>
+	<a href="/delete/{{page_link}}">delete page</a>
+	<a href="/logout">logout</a>
+	<div class = "nav">
+		<h1>Bootstrap</h1>
+		{% for page in pages %}
+		<ul>
+			<li><a href="/home/{{page.pagename}}">{{page.pagename}}</a></li>
+		</ul>
+		{% endfor %}
+	</div>
+	
+		<br>
+		
+		{% block content %}
+		{% endblock %}
+	<script
+			  src="https://code.jquery.com/jquery-3.0.0.js"
+			  integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo="
+			  crossorigin="anonymous"></script>	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	</body>
+
+	
+</html>

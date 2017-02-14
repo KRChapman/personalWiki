@@ -1,0 +1,43 @@
+body {
+	
+	background-color: #e6e9ed;
+	
+
+}
+
+.border {
+	border-right:1px solid #000;
+	height: 500px;
+}
+
+.form-group {
+	
+	
+}
+
+#content {
+	
+    
+	padding-top: 25%;
+	text-align: center;
+}
+
+
+
+h1 {
+	font-size: 40px;
+	padding-bottom: 10px;
+	
+
+	color: #3a3a3c;
+}
+
+
+
+.btn-default{
+	border: 1px solid black;
+
+}
+
+ hr.style-seven { height: 30px; border-style: solid; border-color: black; border-width: 1px 0 0 0; border-radius: 20px; } hr.style-seven:before { display: block; content: ""; height: 30px; margin-top: -31px; border-style: solid; border-color: black; border-width: 0 0 1px 0; border-radius: 20px; }
+

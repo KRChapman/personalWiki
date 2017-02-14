@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+	 Quick Links
+	thank you 
+	
+
+	<div class = "main">
+	{% for post in recent_posts %}
+		<div class="entry">
+		<div class="date">{{post.title}}</div>
+		<br>
+		<div class="entry-title">{{post.description}}</div>
+		<br>
+		<pre class="entry-body">{{post.links | safe}}</div>
+	{% endfor %}
+	</div>
+
+	
+{% endblock %}
+

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Resource Home</title>
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+		<link rel="stylesheet" type="text/css" href="css/loginsign.css">
+	</head>
+
+<body>
+
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-offset-3 col-md-6">
+				<div id="content">
+					<h1 class="col-sm-offset-2 col-sm-10">Log into Resource Saver</h1>
+
+					<form method="post" class="form-horizontal">
+					  <div class="form-group">
+					    <label for="inputuser" class="col-sm-2 control-label">Username</label>
+					    <div class="col-sm-10">
+					    	<input type="text" class="form-control" id="inputuser" name="username" value="{{username}}"><div>{{user_error}}</div>
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label for="inputPassword" class="col-sm-2 control-label">Password</label>
+					    <div class="col-sm-10">
+					      <input type="password" class="form-control" id="inputpassword" name="password" value=""><div>{{pass_error}}</div>
+					    </div>
+					  </div>
+
+					
+					  <div class="form-group">
+					    <div class="col-sm-offset-2 col-sm-10">
+					      <button type="submit" class="btn btn-default">Sign in</button>
+					      <a  id="btnUp" href="/signup">Sign Up</a>
+					     <hr class="style-seven">
+					    </div>
+
+					  </div>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+	<!-- <div class="container">
+		<form method="post">
+
+
+			Username<input type="text" name="username" value="{{username}}"><div>{{user_error}}</div>
+			<br>
+
+			Password<input type="text" name="password" value=""><div>{{pass_error}}</div>
+			<br>
+
+
+
+				
+			<input type="submit">
+
+
+		</form>
+		<a href="/signup">Sign Up</a>
+	</div> -->
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+
+.navbar-inverse .navbar-nav > li > a {
+	color: #A4A4A4;
+
+}
+.col-xs-1 {
+	width: 3%;
+	padding-left: 0px;
+	
+}
+
+h2 {
+	text-align: center;
+	color: #6E6E6E;
+	text-transform: capitalize;
+}
+
+.border {
+	border-left:1px solid #000;
+	height: 500px;
+	width: 0px;
+	
+}
+
+#InputLink {
+	height: 60px;
+}
+
+#InputDescription {
+	height: 140px;
+}
+
+
+a {
+	color: #4B5991;
+}
+
+ul {
+   
+    padding-left: 15px;
+}​
+#del{
+	
+/* 	font-size: 400px;
+		color: red;
+	background-color: red; */
+	
+}
+  .navbar-nav  :nth-child(5){
+	margin-left: 85px;
+	
+}
+
+.f, .testb{
+	background-color: #eeeeee;
+	border-color: #eeeeee;
+
+	margin-left: 190%;
+	
+	
+}
+

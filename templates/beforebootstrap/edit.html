@@ -1,0 +1,29 @@
+
+
+
+<body>
+
+	<form method="post">
+	
+	
+    {% for post in recent_posts %}
+	
+	         Title
+			<input type="text"  name="edit" id="title" value="{{post.title}}">
+			<br>
+			Description
+			
+			<input type="text" name="edit" id = "description" value="{{post.description}}">
+			<br>
+			Links
+			<textarea name="edit" id= "links"  value="{{post.links}}" rows="10" cols="20" wrap= "soft" >{{post.links}}</textarea>
+			<br>
+		
+		
+	
+	{% endfor %}
+			<br>
+		
+	 <input type="submit">
+	</form>
+</body>

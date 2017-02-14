@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+	 Your quick {{content}} links.
+	
+
+	<div class = "main">
+		
+
+	{% for post in recent_posts %}
+		<div class="entry">
+		<div class="date">{{post.title}}</div>
+		<br>
+		<div class="entry-title">{{post.description | safe}}</div>
+
+		<br>
+		<a href="{{post.links | safe}}">{{post.links | safe}}</a>
+		<!-- <pre class="entry-body">{{post.links | safe}}</div> -->
+	{% endfor %}
+
+	</div>
+
+	
+{% endblock %}
+

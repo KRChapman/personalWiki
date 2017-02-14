@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+	 <h2>{{content}} links</h2> 
+	
+
+	<!-- <div class = "main"> -->
+		
+
+	{% for post in recent_posts %}
+		<div class="entry">
+		<div class="date">{{post.title}}</div>
+		<br>
+		<div class="entry-title">{{post.description | safe}}</div>
+
+		<br>
+		
+		{% for link in post.links %}
+		<a href="{{link| safe}}">{{link | safe}}</a><br>
+		{% endfor %}
+		
+		<hr>
+		<!-- <pre class="entry-body">{{post.links | safe}}</div> -->
+	{% endfor %}
+	
+	
+			
+<!-- 	</div>
+ -->
+	
+{% endblock %}
+

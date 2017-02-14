@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Resource Home</title>
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+		<link rel="stylesheet" type="text/css" href="/css/wikistyle.css">
+
+	</head>
+
+<body>	
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="/home">Resource Saver</a>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li class="active"><a href="/home">Home<span class="sr-only">(current)</span></a></li>
+	        
+	  
+	        
+	       	
+	      
+	      </ul>
+	     
+	      <ul class="nav navbar-nav navbar-right">
+	        
+	        <li><a href="/logout">logout</a></li>
+	    
+	        
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+
+
+		<!-- <form method="post"> -->
+		    
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-6">
+				<div id="content">
+				 <form method="post">
+				  <div class="form-group">
+				    <label for="InputPagename">Pagename</label>
+				    <input type="text" name="pagename" id="InputPagename" class="form-control" value="{{pagename}}" readonly="readonly">
+				  
+				  </div>
+				  <div class="form-group">
+				    <label for="InputTitle">Title</label>
+				    <input type="text" name="title" class="form-control" id="InputTitle" value="{{title}}">
+				  
+				  </div>
+				  <div class="form-group">
+				    <label for="InputDescription">Description</label>
+	    			<textarea name="description" class="form-control" id="InputDescription" rows="10" cols="20" wrap= "soft" >{{description}}</textarea>
+				  </div>
+				  <div class="form-group">
+				    <label for="InputLink">Link</label>
+				    
+			    	<textarea name="links" class="form-control" id="InputLink" rows="10" cols="5" wrap= "soft" >{{link}}</textarea>
+							
+				  </div>
+			
+				  <button type="submit" class="btn btn-default">Submit</button>
+				  {{error}}
+				</form>
+		   </div>
+			</div>
+		</div>
+	</div>
+			
+	
+		
+</body>
+
+
+</html>

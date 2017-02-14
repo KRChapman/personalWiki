@@ -1,0 +1,242 @@
+
+	<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Resource Home</title>
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+		<link rel="stylesheet" type="text/css" href="/css/wikistyle.css">
+  <script type="text/javascript" src="script/app.js"></script>
+
+
+
+	</head>
+
+<body>	
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="/home">Resource Saver</a>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li class="active"><a href="/home">Home<span class="sr-only">(current)</span></a></li>
+	        
+	  
+	        
+	       	
+	      
+	      </ul>
+	     
+	      <ul class="nav navbar-nav navbar-right">
+	        
+	        <li><a href="/logout">logout</a></li>
+	    
+	        
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+
+
+
+		    
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-6">
+				<div id="content">
+				 <form  method="post">
+					{% for post in recent_posts %}
+					  <div class="form-group">
+					    <label for="InputTitle">Title</label>
+					    <input type="text" name="edit" class="form-control" id="InputTitle" value="{{post.title}}">
+					  
+					  </div>
+					  <div class="form-group">
+					    <label for="InputDescription">Description</label>
+		    			<textarea name="edit" class="form-control" id="InputDescription" value="{{post.description}}" rows="10" cols="20" wrap= "soft" >{{post.description.replace('<br>','\n' )}}</textarea>
+					  </div>
+					  
+					  <div class="form-group">
+					    <label for="InputLink">Link</label>
+					    
+				    	<textarea name="edit"  class="form-control" id="InputLink" value="{{post.links}}" rows="10" cols="5" wrap= "soft" >{% for link in post.links %}{{link.replace('<br>','\n' )}}{% endfor %}	</textarea>
+							
+					  </div>
+					{% endfor %}
+					  <button type="submit" class="btn btn-default">Submit</button>
+					  {{error}}
+				</form>
+		   </div>
+			</div>
+		</div>
+	</div>
+			
+			 <script>	function createButtons(){
+var formInputs = document.querySelectorAll('input');
+
+
+formInputs.forEach(function(formInput){
+console.log('hi', formInput);
+	formInput.insertAdjacentHTML('afterend', '<button type="submit" class="btn btn-default up">up</button><button type="submit" class="btn btn-default Down">Down</button><button type="submit" class="btn btn-default testb">DELETE</button>');
+});
+
+
+var deleteButtons = document.querySelectorAll('.testb');
+var moveButtons = document.querySelectorAll('.up, .Down');
+
+console.log(moveButtons);
+	for(let i = 0; i < deleteButtons.length; i++){
+		deleteButtons[i].addEventListener('click', function(e){
+		deleteContent(this,i,e);
+		});
+	}
+	for(let i = 0; i < moveButtons.length; i++){
+		moveButtons[i].addEventListener('click', function(e){
+										console.log(moveButtons.length);
+										moveContent(this,i,e,moveButtons.length);
+										});
+	}
+}
+
+function moveContent(obj,index,event,buttonArray){
+event.preventDefault();
+var formGroup = document.querySelectorAll('.form-group');
+//up
+if(index % 2 === 0 && index !== 0){
+index = Math.floor(index / 2);
+//var moveUpButtons = document.querySelectorAll('.up');
+var currentArray = [];
+var upperArray = [];
+var start = index * 3;
+	for(let i = start+2; i >= start; i--){
+		currentArray.push(formGroup[i].childNodes[3].value);
+
+		
+		
+	
+	}
+		for(let i = start+2-3; i >= start - 3; i--){
+		upperArray.push(formGroup[i].childNodes[3].value);
+
+		
+		
+	
+	}
+	    var k = 0;
+		for(let i = start+2; i >= start; i--){
+		formGroup[i].childNodes[3].value = upperArray[k];
+
+		
+		k++;
+	
+	}
+	var j = 0;
+		for(let i = start+2-3; i >= start - 3; i--){
+		formGroup[i].childNodes[3].value = currentArray[j];
+		
+		j++;
+
+		
+		
+	
+	}
+}
+else if (index % 2 !== 0 && buttonArray - 1 !== index){
+//down
+index = Math.floor(index / 2);
+//var moveUpButtons = document.querySelectorAll('.up');
+var currentArray = [];
+var lowerArray = [];
+var start = index * 3;
+	for(let i = start+2; i >= start; i--){
+		currentArray.push(formGroup[i].childNodes[3].value);
+
+		
+		
+	
+	}
+		for(let i = start+2+3; i >= start + 3; i--){
+		lowerArray.push(formGroup[i].childNodes[3].value);
+
+		
+		
+	
+	}
+	    var k = 0;
+		for(let i = start+2; i >= start; i--){
+		formGroup[i].childNodes[3].value = lowerArray[k];
+
+		
+		k++;
+	
+	}
+	var j = 0;
+		for(let i = start+2+3; i >= start + 3; i--){
+		formGroup[i].childNodes[3].value = currentArray[j];
+		
+		j++;
+
+		
+		
+	
+	}
+}
+
+}
+
+function deleteContent(obj,index,event){
+event.preventDefault();
+	var start = index * 3;
+	var formGroup = document.querySelectorAll('.form-group');
+	
+	console.log(formGroup[index].childNodes[3].value);
+	for(let i = start+2; i >= start; i--){
+		formGroup[i].childNodes[3].value = "";
+
+		
+		
+	
+	}
+}
+createButtons();	 </script>
+		
+</body>
+
+
+</html>
+	
+<!-- 	<form method="post">
+	
+	
+    {% for post in recent_posts %}
+	
+	         Title
+			<input type="text"  name="edit" id="title" value="{{post.title}}">
+			<br>
+			Description
+			
+			<input type="text" name="edit" id = "description" value="{{post.description}}">
+			<br>
+			Links
+			<textarea name="edit" id= "links"  value="{{post.links}}" rows="10" cols="20" wrap= "soft" >{{post.links}}</textarea>
+			<br>
+		
+		
+	
+	{% endfor %}
+			<br>
+		
+	 <input type="submit">
+	</form>
+</body> -->

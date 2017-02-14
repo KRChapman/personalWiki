@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Resource Home</title>
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+		<link rel="stylesheet" type="text/css" href="/css/wikistyle.css">
+	
+	</head>
+	
+	
+	
+<body>
+
+
+
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="/home">Resource Saver</a>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li class="active"><a href="/home">Home<span class="sr-only">(current)</span></a></li>
+	        
+	        <li><a href="/newpost/{{page_link}}">new post</a></li>
+	        <li><a href="/newpage">new page</a></li>
+	        <li><a href="/edit/{{page_link}}">edit</a></li>
+	        <li id="del"><a href="/delete/{{page_link}}">delete page</a></li>
+	        
+	       	
+	      
+	      </ul>
+	     
+	      <ul class="nav navbar-nav navbar-right">
+	        
+	        <li><a href="/logout">logout</a></li>
+	    
+	        
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-2">
+				
+				<ul>
+				{% for page in pages %}
+			  <li><a href="/home/{{page.pagename}}">{{page.pagename}}</a></li>
+			  {% endfor %}
+			  </ul>
+		
+		
+				
+			</div>
+			<div class="col-xs-1">
+				<div class="border"></div>
+			</div>
+			<div class="col-md-9">
+
+				{% block content %}
+			  {% endblock %}
+			</div>
+		</div>
+	</div>
+
+
+	
+	
+
+	<script
+			  src="https://code.jquery.com/jquery-3.0.0.js"
+			  integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo="
+			  crossorigin="anonymous"></script>	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+   <!--  <script type="text/javascript" src="script/app.js"></script> -->
+</body>
+
+	
+</html>
